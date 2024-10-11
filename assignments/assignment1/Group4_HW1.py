@@ -738,8 +738,6 @@ class KParameterTuning:
             print(f"K={k}, Validation Accuracy: {val_accuracy:.4f}")
 
     def plot_results(self):
-        best_k = self.k_values[np.argmax(self.validation_accuracies)]
-        best_accuracy = max(self.validation_accuracies)
         plt.figure(figsize=(10, 6))
         plt.plot(self.k_values, self.validation_accuracies, marker='o')
         plt.title('Validation Accuracy vs. K Value')
@@ -747,8 +745,6 @@ class KParameterTuning:
         plt.ylabel('Validation Accuracy')
         plt.xticks(self.k_values)
         plt.grid(True)
-        plt.annotate(f'Best K = {best_k}', xy=(best_k, best_accuracy), xytext=(best_k, best_accuracy + 0.02),
-                     arrowprops=dict(facecolor='black', shrink=0.05))
         plt.show()
 
 
